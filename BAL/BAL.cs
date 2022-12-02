@@ -14,8 +14,9 @@ namespace DesignationPro.BAL
     {
         DAL.DAL obj = new DAL.DAL();
         private string _designame;
-        private string _desigid;
+        private int _desigid;
         private string _deptid;
+        private int _id;
 
         public string DesigName
         {
@@ -27,6 +28,18 @@ namespace DesignationPro.BAL
             set
             {
                 _designame = value;
+            }
+        }
+
+        public int ID
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                _id = value;
             }
         }
         public string DeptID
@@ -41,7 +54,7 @@ namespace DesignationPro.BAL
                 _deptid = value;
             }
         }
-        public string DesigID
+        public int DesigID
         {
             get
             {
@@ -66,9 +79,9 @@ namespace DesignationPro.BAL
         {
             return obj.Desigupdate(this);
         }
-        public int insertdepartmet()
+        public int deleteProduct()
         {
-            return obj.departmentinsert(this);
+            return obj.DeleteProduct(this);
         }
 
     }

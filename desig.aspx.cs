@@ -12,8 +12,11 @@ namespace DesignationPro
         BAL.BAL objdept = new BAL.BAL();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataSource = objdept.viewdesig();
-            GridView1.DataBind();
+            if (!Page.IsPostBack)
+            {
+                GridView1.DataSource = objdept.viewdesig();
+                GridView1.DataBind();
+            }
 
         }
 
@@ -31,15 +34,17 @@ namespace DesignationPro
 
 
 
-            int id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
-            TextBox txt = new TextBox();
-            txt = (TextBox)GridView1.Rows[e.RowIndex].Cells[0].Controls[0];
+            Label id = GridView1.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
+            TextBox name = GridView1.Rows[e.RowIndex].FindControl("txt_Name") as TextBox;
+            TextBox city = GridView1.Rows[e.RowIndex].FindControl("txt_Dname") as TextBox;
+            
 
 
+            //string a= id.ToString();
+            //int n = int.Parse(a);
 
-
-            objdept.DesigID = id.ToString();
-            objdept.DesigName = txt.Text;
+            objdept.DesigID = Convert.ToInt32(id.Text);
+            objdept.DesigName = name.Text;
             int i = objdept.updatedesig();
             GridView1.EditIndex = -1;
 
@@ -61,8 +66,8 @@ namespace DesignationPro
             objdept.DesigName = TextBox1.Text;
             objdept.DeptID = DropDownList1.SelectedItem.Value;
             int i = objdept.insertdesig();
-            int j = objdept.insertdepartmet();
-            if (i == 1&&j==1)
+            
+            if (i == 1)
             {
                 Response.Write("<script language=javascript>alert('Sucess');</script>");
                 GridView1.DataSource = objdept.viewdesig();
@@ -74,6 +79,15 @@ namespace DesignationPro
                 GridView1.DataSource = objdept.viewdesig();
                 GridView1.DataBind();
             }
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            int Id = Convert.ToInt32(GridView1.Rows[e.RowIndex].FindControl("lbl_ID") as Label;);
+            objdept.ID = Id;
+            int i = objdept.deleteProduct();
+            GridView1.DataSource = objdept.viewdesig();
+            GridView1.DataBind();
         }
     }
 }

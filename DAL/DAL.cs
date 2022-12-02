@@ -27,7 +27,7 @@ namespace DesignationPro.DAL
         }
         public DataTable ViewDesig()
         {
-            string s = "select DesignationId,DesignationName from Designation";
+            string s = "SELECT DesignationId, Designation.DesignationName, Department.DepartmentName FROM     Department INNER JOIN Designation ON Department.DepartmentId = Designation.DepartmentId";
             SqlCommand cmd = new SqlCommand(s, Getcon());
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -45,7 +45,7 @@ namespace DesignationPro.DAL
 
         public int Desigupdate(BAL.BAL obj)
         {
-            string s = "update Designation set dept_name='" + obj.DesigName + "' where Id='" + obj.DesigID + "'";
+            string s = "update Designation set DesignationName='" + obj.DesigName + "' where DesignationId='" + obj.DesigID + "'";
             SqlCommand cmd = new SqlCommand(s, Getcon());
             return cmd.ExecuteNonQuery();
         }
@@ -53,15 +53,14 @@ namespace DesignationPro.DAL
         public int Desiginsert(BAL.BAL obj)
         {
 
-            string qry = "insert into Designation(DesignationName) values ('" + obj.DesigName + "')";
+            string qry = "insert into Designation(DesignationName,DepartmentId) values ('" + obj.DesigName + "','" + obj.DeptID + "')";
             SqlCommand cmd = new SqlCommand(qry, Getcon());
             return cmd.ExecuteNonQuery();
         }
 
-        public int departmentinsert(BAL.BAL obj)
+        public int DeleteProduct(BAL.BAL obj)
         {
-
-            string qry = "insert into Designation(DepartmentId) values ('" + obj.DeptID + "')";
+            string qry = "Delete from Designation where DesignationId = '" + obj.ID + "'";
             SqlCommand cmd = new SqlCommand(qry, Getcon());
             return cmd.ExecuteNonQuery();
         }

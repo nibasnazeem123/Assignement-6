@@ -52,8 +52,8 @@ C:\Users\nibas\source\repos\DesignationPro\bin\roslyn\VBCSCompiler.exe
 C:\Users\nibas\source\repos\DesignationPro\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\nibas\source\repos\DesignationPro\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\nibas\source\repos\DesignationPro\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.AssemblyReference.cache
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.CoreCompileInputs.cache
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.CopyComplete
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.dll
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.pdb
+C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.AssemblyReference.cache
