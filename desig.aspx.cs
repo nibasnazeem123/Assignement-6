@@ -45,7 +45,8 @@ namespace DesignationPro
 
             objdept.DesigID = Convert.ToInt32(id.Text);
             objdept.DesigName = name.Text;
-            int i = objdept.updatedesig();
+            objdept.DeptID = DropDownList1.SelectedItem.Value;
+            objdept.updatedesig();
             GridView1.EditIndex = -1;
 
 
@@ -83,9 +84,16 @@ namespace DesignationPro
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int Id = Convert.ToInt32(GridView1.Rows[e.RowIndex].FindControl("lbl_ID") as Label;);
+            int Id = Convert.ToInt32(GridView1.Rows[e.RowIndex].FindControl("lbl_ID") as Label);
             objdept.ID = Id;
             int i = objdept.deleteProduct();
+            GridView1.DataSource = objdept.viewdesig();
+            GridView1.DataBind();
+        }
+
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
             GridView1.DataSource = objdept.viewdesig();
             GridView1.DataBind();
         }

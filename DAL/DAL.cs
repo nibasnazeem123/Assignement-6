@@ -45,7 +45,7 @@ namespace DesignationPro.DAL
 
         public int Desigupdate(BAL.BAL obj)
         {
-            string s = "update Designation set DesignationName='" + obj.DesigName + "' where DesignationId='" + obj.DesigID + "'";
+            string s = "update Designation set DesignationName='" + obj.DesigName + "',DepartmentId=" + obj.DeptID + " where DesignationId='" + obj.DesigID + "'";
             SqlCommand cmd = new SqlCommand(s, Getcon());
             return cmd.ExecuteNonQuery();
         }
