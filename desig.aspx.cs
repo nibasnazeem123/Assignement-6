@@ -37,7 +37,7 @@ namespace DesignationPro
             Label id = GridView1.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
             TextBox name = GridView1.Rows[e.RowIndex].FindControl("txt_Name") as TextBox;
             TextBox city = GridView1.Rows[e.RowIndex].FindControl("txt_Dname") as TextBox;
-            
+            DropDownList dp= GridView1.Rows[e.RowIndex].FindControl("DropDownList2") as DropDownList;
 
 
             //string a= id.ToString();
@@ -45,7 +45,7 @@ namespace DesignationPro
 
             objdept.DesigID = Convert.ToInt32(id.Text);
             objdept.DesigName = name.Text;
-            objdept.DeptID = DropDownList1.SelectedItem.Value;
+            objdept.DeptID = dp.SelectedItem.Value;
             objdept.updatedesig();
             GridView1.EditIndex = -1;
 
@@ -97,5 +97,7 @@ namespace DesignationPro
             GridView1.DataSource = objdept.viewdesig();
             GridView1.DataBind();
         }
+
+        
     }
 }

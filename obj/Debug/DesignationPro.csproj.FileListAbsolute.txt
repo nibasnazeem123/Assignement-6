@@ -56,4 +56,3 @@ C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.CoreC
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.CopyComplete
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.dll
 C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.pdb
-C:\Users\nibas\source\repos\DesignationPro\obj\Debug\DesignationPro.csproj.AssemblyReference.cache
